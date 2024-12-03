@@ -1,4 +1,9 @@
-/Frame.class
-/SimpleAudioPlayer.class
-/Sprite.class
 /imgs/
+/.classpath
+/.project
+/.settings/
+/Background.class
+/Charmander.class
+/CharmanderScroller.class
+/CharmanderScroller2.class
+/scifi.wav
