@@ -140,6 +140,7 @@ public class LifeImage{
 		return vx/2;
 	}
 
+
 	public void paint(Graphics g) {
 		//these are the 2 lines of code needed draw an image on the screen
 		Graphics2D g2 = (Graphics2D) g;

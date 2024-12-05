@@ -105,5 +105,10 @@
 			<type>1</type>
 			<location>C:/Users/1923685/Pictures/water.png</location>
 		</link>
+		<link>
+			<name>src/imgs/winscreen.png</name>
+			<type>1</type>
+			<location>C:/Users/1923685/Downloads/winscreen.png</location>
+		</link>
 	</linkedResources>
 </projectDescription>

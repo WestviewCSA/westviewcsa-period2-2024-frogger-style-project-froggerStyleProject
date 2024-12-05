@@ -31,6 +31,10 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	Font timeFont = new Font("Courier", Font.BOLD, 70);
 	int level = 0;
 	
+
+
+		
+		
 	
 	Font myFont = new Font("Courier", Font.BOLD, 40);
 	SimpleAudioPlayer backgroundMusic = new SimpleAudioPlayer("scifi.wav", false);
@@ -60,7 +64,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	public void paint(Graphics g) {
 		super.paintComponent(g);
 		
-		
+
 		//paint the other objects on the screen
 		water.paint(g);
 		charmander2.paint(g);
@@ -82,6 +86,8 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 				System.out.println("hit");
 				
 				charmander.resetPosition();
+				
+				
 				
 			}
 		}
@@ -111,19 +117,13 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		
 		for(CharmanderScroller obj: row2) {
 			if(obj.collided(charmander)) {
-				charmander.setVx(obj.getVx());
+				charmander.setVx(charmander.getVx() + obj.getVx());
 				riding = true;
 				break;
 		
 			}
 		}
 		
-		//main character stops moving if not on rideable object
-		if(!riding && charmander.getY() > 120) {
-			riding = false; 
-			charmander.setVx(0);
-			 
-		}
 		
 		for (CharmanderScroller2 obj : row3) {
 			//invoke the collided method fo ryour
@@ -131,6 +131,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			//as your arugment
 			if (obj.collided(charmander)) {
 				System.out.println("safe");
+				charmander.setVx(charmander.getVx() + obj.getVx());
 				riding = true;
 				break;
 		
@@ -142,6 +143,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			riding = false; 
 			charmander.setVx(0);
 			 
+	
 		}
 		
 		
@@ -156,7 +158,19 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			
 			
 		}
+		
+		
+		// win and lose variables
+			int livesCount = 6; 
+			boolean gameWon = false; 
+			
+			 
+			
+			if (charmander.getY() <= 800) {
+		         gameWon = true; 
+		     }
 
+	
 	
 		
 	
@@ -218,7 +232,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		
 		//traverse the array 
 		for(int i = 0; i < row1.length; i++) {
-			row1[i] = new Water( i*500 , 150);
+			row1[i] = new Water();
 		}
 		for(int i = 0; i < row2.length; i++) {
 			row2[i] = new CharmanderScroller( i*400 , 260);
@@ -241,6 +255,8 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		for(int i = 0; i < 6; i++) {
 			
 			this.lives.add(new LifeImage(i*40, 10));
+			
+			
 		}
 		
 		//the cursor image must be outside of the src folder
@@ -256,7 +272,6 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setVisible(true);
 	}
-	
 	
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
