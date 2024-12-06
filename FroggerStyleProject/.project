@@ -14,4 +14,16 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/imgs/Dory.png</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/Downloads/Dory.png</locationURI>
+		</link>
+		<link>
+			<name>src/imgs/Pufferfish.png</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/Downloads/Pufferfish.png.png</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>
