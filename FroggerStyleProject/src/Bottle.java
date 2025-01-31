@@ -38,7 +38,7 @@ public class Bottle {
         this();
         this.x = x;
         this.y = y;
-        this.width = width;
+        this.width = width; 
         this.vx = vx;
         this.vy = vy;
     }

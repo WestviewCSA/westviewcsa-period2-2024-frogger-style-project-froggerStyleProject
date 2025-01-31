@@ -37,6 +37,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	boolean riding =false;
 	
 	int score = 0;
+	
 	int lives = 3;
 	 
 	 private boolean gameOverMusicPlayed = false;
@@ -70,6 +71,8 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		     System.out.println("Image loaded successfully.");
 		 }
 		 
+		 
+		 
 		 win = new ImageIcon("src/imgs/win.png").getImage();
 		 lose = new ImageIcon("src/imgs/lose2.jpg").getImage();
 		 
@@ -99,7 +102,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		//functional! use eclipse quick-fixes
 		
 		for(int i=0;i<row1.length;i++) {
-			row1[i]=new Pufferfish((int)(i*110),100,110, 2);
+			row1[i]=new Pufferfish((int)(i*110),100,110, 3);
 		}
 		for(int i=0;i<row2.length;i++) {
 			row2[i]=new Pufferfish((int)(i*100),300,100, -2);
@@ -173,7 +176,7 @@ public void paint(Graphics g) {
 	
 	riding =false;
 	for(Dory d :row3) {
-		d.paint(g);
+		d.paint(g);   
 		
 		if(mar.getHitbox().intersects(d.getHitbox())){
 			mar.setVx(d.getVx());
@@ -249,7 +252,7 @@ public void paint(Graphics g) {
         System.out.println("Score increased! Current score: " + score);
         mar.resetPosition(); // Reset Marlin's position
     }
-	
+	   
 	
 	if(score >= 3) {
 		g.drawImage(win, 0, 0, getWidth(), getHeight(), this);
